@@ -12,7 +12,7 @@ export default function AuthPage({setUser}) {
   return (
     <>
       <h1>AuthPage</h1>
-      <button onClick={handleClick}>{isNewUser ? 'Already have an account? Log in' : 'Create a new account'}</button>
+      <button onClick={handleClick}>{isNewUser ? 'Already have an account? Click here to Log In' : 'Create a new account'}</button>
       { isNewUser ?
       <>
         <SignUpForm setUser={setUser}/>

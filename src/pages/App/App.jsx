@@ -12,17 +12,21 @@ export default function App() {
 
   return (
     <main className="App">
-      <h1>MyWOD</h1>
+      <NavBar user={user} setUser={setUser} />
+      <h1></h1>
       { user ?
         <>
-          <NavBar user={user} setUser={setUser} />
           <Routes>          
-            <Route path="/wods/new" element={<NewWodPage />} />
-            <Route path="/wods" element={<WodHistoryPage />} />
+            <Route path="/wods/new" element={<NewWodPage user={user} />} />
+            <Route path="/wods" element={<WodHistoryPage user={user} />} />
           </Routes>
         </>
         :
-        <AuthPage setUser={setUser} />
+        <>
+          <Routes>          
+            <Route path="/auth" element={<AuthPage setUser={setUser} />} />
+          </Routes>
+        </>        
       }
     </main>
   );

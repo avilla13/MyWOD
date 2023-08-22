@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import AuthPage from '../../pages/AuthPage/AuthPage';
 import * as userService from '../../utilities/users-service';
 
 export default function NavBar({user, setUser}) {
@@ -8,14 +9,26 @@ export default function NavBar({user, setUser}) {
     // Update state will also cause a re-render
     setUser(null);
   }
+
+  function handleSignIn(){
+    alert('Sign Up/Login has been clicked!');
+  }
+
   return (
-    <nav>
-      <Link to="/wods">WOD History</Link>
-      &nbsp; | &nbsp;
-      <Link to="/wods/new">New WOD</Link>
-      &nbsp;&nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut} >Log Out</Link>
+    <nav className="navbar">
+      <h2>MyWOD</h2>
+      { user ? 
+      <>
+        <Link to="/wods">My WODS</Link>
+        &nbsp; | &nbsp;
+        <Link to="/wods/new">New WOD</Link>
+        &nbsp;&nbsp;
+        <span>Welcome, {user.name}</span>
+        &nbsp;&nbsp;<Link to="" onClick={handleLogOut} >Log Out</Link>
+      </>
+      :
+      <Link to="/auth" >Sign Up/Log In</Link>      
+      }
     </nav>
   )
 }
