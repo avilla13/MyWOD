@@ -11,16 +11,14 @@ export default function NavBar({user, setUser}) {
     setUser(null);
   }
 
-  function handleSignIn(){
-    alert('Sign Up/Login has been clicked!');
-  }
-
   return (
     <nav className="navbar">
-      <h2>MyWOD</h2>
+      <Link to="/" >
+        <h2>MyWOD</h2>
+      </Link>
       { user ? 
       <>
-        <Link to="/wods">My WODS</Link>
+        <Link to="/wods">MyWODS</Link>
         &nbsp; | &nbsp;
         <Link to="/wods/new">New WOD</Link>
         &nbsp;&nbsp;

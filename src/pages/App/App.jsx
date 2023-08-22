@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewWodPage from '../NewWodPage/NewWodPage';
 import WodHistoryPage from '../WodHistoryPage/WodHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
+import HomePage from '../HomePage/HomePage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -16,7 +17,8 @@ export default function App() {
       <h1></h1>
       { user ?
         <>
-          <Routes>          
+          <Routes>
+            <Route path="/" element={<HomePage />} />       
             <Route path="/wods/new" element={<NewWodPage user={user} />} />
             <Route path="/wods" element={<WodHistoryPage user={user} />} />
           </Routes>
@@ -25,6 +27,7 @@ export default function App() {
         <>
           <Routes>          
             <Route path="/auth" element={<AuthPage setUser={setUser} />} />
+            <Route path="/" element={<HomePage />} />
           </Routes>
         </>        
       }
