@@ -1,0 +1,15 @@
+.home-container {
+    max-width: 80vmin;
+    max-height: 80vh;
+    border: solid black 2px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wod-ai {
+    border: solid blue 4px;
+    width: auto;
+    
+}

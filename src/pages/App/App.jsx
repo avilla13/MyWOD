@@ -18,7 +18,7 @@ export default function App() {
       { user ?
         <>
           <Routes>
-            <Route path="/" element={<HomePage />} />       
+            <Route path="/" element={<HomePage user={user} />} />       
             <Route path="/wods/new" element={<NewWodPage user={user} />} />
             <Route path="/wods" element={<WodHistoryPage user={user} />} />
           </Routes>
@@ -27,7 +27,7 @@ export default function App() {
         <>
           <Routes>          
             <Route path="/auth" element={<AuthPage setUser={setUser} />} />
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage user={user} />} />
           </Routes>
         </>        
       }
