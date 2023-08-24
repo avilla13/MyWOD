@@ -20,14 +20,16 @@ async function createWod(req, res) {
         model: "gpt-3.5-turbo",
         messages: [
           {"role": "system", "content": "You are a fitness assistant."},
-          {"role": "user", "content": "Give me a CrossFit WOD for beginners."}
+          {"role": "user", 
+          "content": "Generate either a For Time, AMRAP, or an EMOM similar to its respective example:\nFor Time\n5 Rounds of:\n12 Deadlifts (155/105 lb)\n9 Hang Power Cleans (155/105 lb)\n6 Push Jerks (155/105 lb)\n\nAMRAP\nin 20 minutes:\n5 Deadlifts (115/75 lb)\n5 Power Cleans (115/75 lb)\n5 Front Squats (115/75 lb)\n5 Push Press (115/75 lb)\n\nEMOM\nin 14 minutes:\nOdd: 10 Thrusters (95/65 lb)\nEven: 20 Kb Swings (53/35 lb)"}
         ],
-        max_tokens: 300
+        temperature: 0.5,
+        max_tokens: 260
       })
     });
     const data = await response.json();
     res.status(200).json({ WodResult: data.choices[0].message.content });
-    console.log(data);
+    console.log(WodResult);
   } catch(err) {
     console.log(err);
   }
