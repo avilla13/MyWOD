@@ -3,8 +3,10 @@ import './HomePage.css';
 import * as aiwodsApi from '../../utilities/aiwods-api';
 
 export default function HomePage({ user }) {
-  function handleClick(){
-    aiwodsApi.createAIWod();
+  
+  async function handleClick(){
+    const aiWod = await aiwodsApi.createAIWod();
+    console.log(aiWod);
   }
   return (
     <>
