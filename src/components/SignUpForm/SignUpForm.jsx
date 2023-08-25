@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {useNavigate} from "react-router-dom";
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
@@ -9,6 +10,7 @@ export default class SignUpForm extends Component {
     confirm: '',
     error: ''
   };
+  
   // The object passed to setState is merged with the current state object
   handleChange = (evt) => {
     this.setState({
@@ -19,6 +21,8 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     // prevent form from being submitted to the server
     evt.preventDefault();
+    const navigate = useNavigate();
+
     try {
       const {name, email, password} = this.state;
       const formData = {...this.state};
@@ -27,6 +31,8 @@ export default class SignUpForm extends Component {
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
+      // Navigate user to HomePage
+      navigate("/");    
     } catch {
       // An error occured; probably due to duplicate email
       this.setState({ error: 'Sign Up Failed- Try Again' });
