@@ -27,7 +27,7 @@ async function create(req, res) {
 
 async function login(req, res) {
   try {
-    const user = await User.findOne({email: req.body.email});
+    const user = await User.findOne({name: req.body.name});
     const passwordsMatch = await bcrypt.compare(req.body.password, user.password);
     if (passwordsMatch) {
       const token = createJWT(user)
