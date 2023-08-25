@@ -18,9 +18,9 @@ export default function NavBar({user, setUser}) {
       </Link>
       { user ? 
       <>
-        <Link to="/wods">MyWODS</Link>
+        <Link to="/mywods">MyWODS</Link>
         &nbsp; | &nbsp;
-        <Link to="/wods/new">New WOD</Link>
+        <Link to="/mywods/new">New WOD</Link>
         &nbsp;&nbsp;
         <div className="right">
           <span>Welcome, {user.name}</span>

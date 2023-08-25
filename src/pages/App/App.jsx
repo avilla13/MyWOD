@@ -4,7 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewWodPage from '../NewWodPage/NewWodPage';
-import WodHistoryPage from '../WodHistoryPage/WodHistoryPage';
+import MyWodsPage from '../MyWodsPage/MyWodsPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 
@@ -19,8 +19,8 @@ export default function App() {
         <>
           <Routes>
             <Route path="/" element={<HomePage user={user} />} />       
-            <Route path="/wods/new" element={<NewWodPage user={user} />} />
-            <Route path="/wods" element={<WodHistoryPage user={user} />} />
+            <Route path="/mywods/new" element={<NewWodPage user={user} />} />
+            <Route path="/mywods" element={<MyWodsPage user={user} />} />
           </Routes>
         </>
         :

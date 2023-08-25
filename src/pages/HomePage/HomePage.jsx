@@ -38,6 +38,7 @@ export default function HomePage({ user }) {
           }
         </div>
         <button onClick={generateAiWod} className='generate-btn'>Generate WOD</button>
+        
       </div>
     </>
   )
