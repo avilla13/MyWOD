@@ -1,17 +1,21 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './HomePage.css';
 import * as aiwodsApi from '../../utilities/aiwods-api';
 
 export default function HomePage({ user }) {
   const [aiWod, setAiWod] = useState(null);
 
-  async function handleClick(){
+  async function generateAiWod(){
     const response = await aiwodsApi.createAIWod();
     console.log(response.WodResult);
     console.log(response.aiGeneratedWod);
     setAiWod(response.aiGeneratedWod);
   }
+  // useEffect hook to trigger new aiWod at render
+  useEffect(() => {
+    generateAiWod();
+  }, []);
+
   return (
     <>
       <h1>Home WOD</h1>
@@ -33,7 +37,7 @@ export default function HomePage({ user }) {
           <h3>Click on button to Generate new WOD</h3>
           }
         </div>
-        <button onClick={handleClick} >Generate WOD</button>
+        <button onClick={generateAiWod} className='generate-btn'>Generate WOD</button>
       </div>
     </>
   )
