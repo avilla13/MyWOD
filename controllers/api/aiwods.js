@@ -21,7 +21,7 @@ async function createWod(req, res) {
         messages: [
           {"role": "system", "content": "You are a fitness assistant."},
           {"role": "user", 
-          "content": "Generate one WOD (either a For Time, AMRAP, or an EMOM) similar to its respective example:\nFor Time\n5 Rounds of:\n12 Deadlifts (155/105 lb)\n9 Hang Power Cleans (155/105 lb)\n6 Push Jerks (155/105 lb)\n\nAMRAP\nin 20 minutes:\n5 Deadlifts (115/75 lb)\n5 Power Cleans (115/75 lb)\n5 Front Squats (115/75 lb)\n5 Push Press (115/75 lb)\n\nEMOM\nin 14 minutes:\nOdd: 10 Thrusters (95/65 lb)\nEven: 20 Kb Swings (53/35 lb)"}
+          "content": "Generate only one WOD (either a For Time, AMRAP, or an EMOM) similar to its respective example:\nFor Time\n5 Rounds of:\n12 Deadlifts (155/105 lb)\n9 Hang Power Cleans (155/105 lb)\n6 Push Jerks (155/105 lb)\n\nAMRAP\nin 20 minutes:\n5 Deadlifts (115/75 lb)\n5 Power Cleans (115/75 lb)\n5 Front Squats (115/75 lb)\n5 Push Press (115/75 lb)\n\nEMOM\nin 14 minutes:\nOdd: 10 Thrusters (95/65 lb)\nEven: 20 Kb Swings (53/35 lb)"}
         ],
         temperature: 0.5,
         max_tokens: 260
@@ -30,7 +30,7 @@ async function createWod(req, res) {
     const data = await response.json();
     const aiResponseText = data.choices[0].message.content;
     const formattedWod = parseWod(aiResponseText);
-    res.status(200).json({ WodResult: aiResponseText });
+    res.status(200).json({ WodResult: aiResponseText, aiGeneratedWod: formattedWod });
     console.log(aiResponseText);
     console.log(typeof(aiResponseText));
     console.log(formattedWod);

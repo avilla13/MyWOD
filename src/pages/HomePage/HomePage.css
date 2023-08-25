@@ -9,7 +9,12 @@
 }
 
 .wod-ai {
-    border: solid blue 4px;
+    /* border: solid blue 4px; */
     width: auto;
-    
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    color: blue;
 }
