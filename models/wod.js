@@ -14,19 +14,23 @@ const wodSchema = new Schema({
     required: true
   },
   duration: {
-    type: Number,
-    min: 1
+    type: Number
   },
-  movements: {
-    type: [String],
-    required: true,        
-  },
+  movements: [{
+    movement: String,
+    reps: Number,
+    weight: String        
+  }],
   rounds: {
-    type: Number,
-    min: 1
+    type: Number    
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }  
 }, {
-    timestamps: true
+    timestamps: true,
+    toJSON: {virtuals: true }
 });
 
 module.exports = mongoose.model('Wod', wodSchema);

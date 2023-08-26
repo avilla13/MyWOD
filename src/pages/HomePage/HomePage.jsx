@@ -4,6 +4,26 @@ import * as aiwodsApi from '../../utilities/aiwods-api';
 
 export default function HomePage({ user }) {
   const [aiWod, setAiWod] = useState(null);
+  
+  // useEffect hook to trigger new aiWod at render
+  useEffect(() => {
+    generateAiWod();
+  }, []);
+  // Used for testing purposes
+  function handleClick(){
+    console.log(user._id);
+    alert('testing user info')
+  }
+
+  async function saveAiWod(){
+    try {
+      const response = await aiwodsApi.saveAIWod({ wod: aiWod, userId: user._id });
+      alert('WOD successfully saved to your WODS!')
+    } catch (error) {
+      console.error('Oops! Error in saving WOD:', error);
+      alert('Failed to save :(');
+    }
+  }
 
   async function generateAiWod(){
     const response = await aiwodsApi.createAIWod();
@@ -11,10 +31,6 @@ export default function HomePage({ user }) {
     console.log(response.aiGeneratedWod);
     setAiWod(response.aiGeneratedWod);
   }
-  // useEffect hook to trigger new aiWod at render
-  useEffect(() => {
-    generateAiWod();
-  }, []);
 
   return (
     <>
@@ -24,7 +40,7 @@ export default function HomePage({ user }) {
           { aiWod ?
           <>
             <h2>{ aiWod.type }</h2>
-            { aiWod.rounds ? `${aiWod.rounds} Rounds of:` : `in ${aiWod.duration} minutes:` } <br />
+            <div>{ aiWod.rounds ? `${aiWod.rounds} Rounds of:` : `in ${aiWod.duration} minutes:` }</div>
             <ul>
               {aiWod.movements && aiWod.movements.map((movement, idx) => (
                 <li key={idx} >
@@ -38,7 +54,11 @@ export default function HomePage({ user }) {
           }
         </div>
         <button onClick={generateAiWod} className='generate-btn'>Generate WOD</button>
-        
+        {user ? 
+          <button onClick={saveAiWod} className='save-btn'>Save WOD</button>        
+        :        
+          ''        
+        }
       </div>
     </>
   )
