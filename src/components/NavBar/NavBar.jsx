@@ -18,10 +18,10 @@ export default function NavBar({user, setUser}) {
       </Link>
       { user ? 
       <>
-        <Link to="/mywods">MyWODS</Link>
-        &nbsp; | &nbsp;
-        <Link to="/mywods/new">New WOD</Link>
+        <Link to="/about">About</Link>
         &nbsp;&nbsp;
+        <Link to="/mywods">MyWODS</Link>
+        &nbsp;
         <div className="right">
           <span>Welcome, {user.name}</span>
           &nbsp;&nbsp;<Link to="" onClick={handleLogOut} >Log Out</Link>
