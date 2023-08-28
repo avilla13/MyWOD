@@ -1,0 +1,17 @@
+.myWod-card {
+    display: flex;
+    flex-direction: column;
+    color: gold;
+    height: 35vmin;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid gold;
+    border-radius: 2vmin;
+    text-transform: none;
+}
+.myWod-info {
+    width: 90%;
+    border-radius: 3vmin;
+}

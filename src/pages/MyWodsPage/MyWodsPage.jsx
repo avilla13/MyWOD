@@ -1,6 +1,8 @@
 import { checkToken } from '../../utilities/users-service';
 import { useEffect, useState } from 'react';
 import * as mywodsApi from '../../utilities/mywods-api';
+import MyWodCard from '../../components/MyWodCard/MyWodCard';
+import './MyWodsPage.css';
 // import Wod from '../../../models/wod';
 
 export default function MyWodsPage({ user }){
@@ -19,17 +21,13 @@ export default function MyWodsPage({ user }){
     console.log(expDate);
   }
   return (
-    <div>
+    <main>
       <h1>{ user.name }'s WODS </h1>
-      <ul>
-        {myWods.map((wod, idx) => (
-          <li key={idx}>
-            <div>
-              {wod.name} {wod.type}
-            </div>
-          </li>
+      <div className='myWods-grid'>
+        { myWods.map((myWod, idx) => (
+        <MyWodCard key={ idx } myWod={ myWod } user={ user } />
         ))}
-      </ul>
-    </div>
+      </div>
+    </main>
   )
 }

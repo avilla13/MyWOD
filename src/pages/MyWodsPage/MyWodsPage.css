@@ -1,0 +1,6 @@
+.myWods-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vmax;
+    margin: 0 3vmax;
+}

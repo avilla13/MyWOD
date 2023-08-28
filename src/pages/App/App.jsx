@@ -7,6 +7,7 @@ import NewWodPage from '../NewWodPage/NewWodPage';
 import MyWodsPage from '../MyWodsPage/MyWodsPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
+import WodDetailPage from '../WodDetailPage/WodDetailPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -19,8 +20,9 @@ export default function App() {
         <>
           <Routes>
             <Route path="/" element={<HomePage user={user} />} />       
-            <Route path="/mywods/new" element={<NewWodPage user={user} />} />
             <Route path="/mywods" element={<MyWodsPage user={user} />} />
+            <Route path="/mywods/new" element={<NewWodPage user={user} />} />
+            <Route path="/mywods/:myWodId" element={<WodDetailPage user={user} />} />
           </Routes>
         </>
         :
