@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
@@ -21,7 +21,7 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     // prevent form from being submitted to the server
     evt.preventDefault();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     try {
       const {name, email, password} = this.state;
@@ -32,7 +32,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       this.props.setUser(user);
       // Navigate user to HomePage
-      navigate("/");    
+      // navigate("/");    
     } catch {
       // An error occured; probably due to duplicate email
       this.setState({ error: 'Sign Up Failed- Try Again' });
