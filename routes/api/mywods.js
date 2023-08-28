@@ -11,6 +11,8 @@ router.get('/', wodCtrl.index);
 // GET /api/mywods/:myWodId
 router.get('/:id', wodCtrl.show);
 
+// PUT /api/mywods/:myWodId
+router.put('/:id', wodCtrl.update);
 
 
 module.exports = router;

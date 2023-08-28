@@ -4,7 +4,8 @@ const User = require('../../models/user');
 
 module.exports = {
   index,
-	show
+	show,
+	update
 }
 
 // Query only user's WODS 
@@ -12,7 +13,7 @@ async function index(req, res) {
 	const userId = req.user._id;
 	try {
 		const myWods = await Wod.find({userId});
-		console.log(`These are the wods for ${req.user.name}: ${myWods}`);
+		// console.log(`These are the wods for ${req.user.name}: ${myWods}`);
 		res.status(200).json(myWods);
 	} catch(error){
 		console.error('Error in controllers myWods.index ', error);
@@ -33,4 +34,17 @@ async function show(req, res) {
   } catch (error) {
     res.status(500).json({ error: "Could not retrieve WOD." });
   }
+}
+
+// Update myWOD by it's Id
+async function update(req, res) {
+	try {
+		// Mongoose needs the 'new: true' option to return the UPDATED wod (instead of original)
+		const updatedWod = await Wod.findByIdAndUpdate(req.params.id, req.body, { new: true });
+		console.log(`Following wod was updated: ${updatedWod}`);
+		res.status(200).json(updatedWod);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: "Could not update WOD" });
+	}
 }

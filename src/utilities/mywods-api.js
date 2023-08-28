@@ -11,3 +11,7 @@ export function getMyWods() {
 export function getWodById(id) {
   return sendRequest(`${BASE_URL}/${id}`);  
 }
+
+export function updateWod(id, updatedWod) {
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT', updatedWod);  
+}

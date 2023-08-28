@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import * as mywodsApi from '../../utilities/mywods-api';
+import WodEditForm from "../../components/WodEditForm/WodEditForm";
 
 export default function WodDetailPage({ user }) {
   const [wod, setWod] = useState(null);
   let { myWodId } = useParams();
+  const [editing, setEditing] = useState(false);
 
   useEffect(function() {
     async function fetchWod() {
@@ -13,6 +15,17 @@ export default function WodDetailPage({ user }) {
     }
     fetchWod();
   }, [myWodId]);
+
+  async function handleUpdate(updatedWod) {
+    const updated = await mywodsApi.updateWod(myWodId, updatedWod);
+    setWod(updated);
+    console.log(updated);
+    setEditing(false);
+  }
+
+  function toggleEdit() {
+    setEditing(!editing);
+  }
 
   return (
     <div>
@@ -29,6 +42,8 @@ export default function WodDetailPage({ user }) {
           </li>
         ))}
       </ul>
+      <button onClick={toggleEdit}>{editing ? 'Cancel' : 'Edit'}</button>
+      {editing && <WodEditForm wod={wod} onUpdate={handleUpdate} />}
       </>
       ) : (
         <p>Loading...</p>
