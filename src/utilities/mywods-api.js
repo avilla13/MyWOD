@@ -8,3 +8,6 @@ export function getMyWods() {
   return sendRequest(`${BASE_URL}`);  
 }
 
+export function getWodById(id) {
+  return sendRequest(`${BASE_URL}/${id}`);  
+}

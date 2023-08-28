@@ -8,6 +8,9 @@ const wodCtrl = require('../../controllers/api/myWods');
 // GET /api/mywods
 router.get('/', wodCtrl.index);
 
+// GET /api/mywods/:myWodId
+router.get('/:id', wodCtrl.show);
+
 
 
 module.exports = router;
