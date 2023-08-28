@@ -48,16 +48,16 @@ export default function WodEditForm({ wod, onUpdate }) {
       <div>
         <label>Rounds</label>
         <input
-          type="text"
+          type="number"
           name="rounds"
           value={formData.rounds}
           onChange={handleChange}
         />
       </div>
       <div>
-        <label>Duration</label>
+        <label>Duration {`(mins)`}</label>
         <input
-          type="text"
+          type="number"
           name="duration"
           value={formData.duration}
           onChange={handleChange}
@@ -66,6 +66,7 @@ export default function WodEditForm({ wod, onUpdate }) {
       <div>
         {formData.movements.map((movement, idx) => (
           <div key={idx}>            
+            <label >{ `Movement `} {idx+1} </label>
             <input
               type="text"
               name="movement"

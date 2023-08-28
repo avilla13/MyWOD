@@ -55,7 +55,7 @@ async function deleteWod(req, res) {
 	try {
 		const wodId = req.params.id;
 		await Wod.findByIdAndDelete(wodId);
-		res.status(200).json();
+		res.status(200).json({ message: `WOD deleted!`});
 	} catch(error) {
 		console.log(error);
 		res.status(500).json({ error: "Could not delete WOD" });

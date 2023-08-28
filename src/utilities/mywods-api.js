@@ -15,3 +15,7 @@ export function getWodById(id) {
 export function updateWod(id, updatedWod) {
   return sendRequest(`${BASE_URL}/${id}`, 'PUT', updatedWod);  
 }
+
+export function deleteWod(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');  
+}

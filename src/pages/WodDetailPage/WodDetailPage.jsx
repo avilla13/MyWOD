@@ -1,12 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import * as mywodsApi from '../../utilities/mywods-api';
 import WodEditForm from "../../components/WodEditForm/WodEditForm";
 
 export default function WodDetailPage({ user }) {
   const [wod, setWod] = useState(null);
-  let { myWodId } = useParams();
+  const { myWodId } = useParams();
   const [editing, setEditing] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(function() {
     async function fetchWod() {
@@ -21,6 +22,11 @@ export default function WodDetailPage({ user }) {
     setWod(updated);
     console.log(updated);
     setEditing(false);
+  }
+
+  async function handleDelete() {
+    await mywodsApi.deleteWod(myWodId);
+    navigate("/mywods");
   }
 
   function toggleEdit() {
@@ -42,8 +48,9 @@ export default function WodDetailPage({ user }) {
           </li>
         ))}
       </ul>
-      <button onClick={toggleEdit}>{editing ? 'Cancel' : 'Edit'}</button>
       {editing && <WodEditForm wod={wod} onUpdate={handleUpdate} />}
+      <button onClick={toggleEdit}>{editing ? 'Cancel' : 'Edit'}</button>
+      <button onClick={handleDelete} >Delete</button>
       </>
       ) : (
         <p>Loading...</p>

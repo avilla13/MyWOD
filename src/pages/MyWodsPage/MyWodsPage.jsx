@@ -16,18 +16,19 @@ export default function MyWodsPage({ user }){
     fetchMyWods();
   }, []);
 
-  async function handleCheckToken(){
-    const expDate = await checkToken();
-    console.log(expDate);
-  }
+  
   return (
     <main>
       <h1>{ user.name }'s WODS </h1>
+      {myWods.length ? (
       <div className='myWods-grid'>
         { myWods.map((myWod, idx) => (
         <MyWodCard key={ idx } myWod={ myWod } user={ user } />
         ))}
       </div>
+      ) : 
+      <h3>No WODS have been saved yet</h3>
+      }
     </main>
   )
 }
