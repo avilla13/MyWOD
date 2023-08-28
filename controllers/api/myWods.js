@@ -5,7 +5,8 @@ const User = require('../../models/user');
 module.exports = {
   index,
 	show,
-	update
+	update,
+	delete: deleteWod
 }
 
 // Query only user's WODS 
@@ -46,5 +47,17 @@ async function update(req, res) {
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: "Could not update WOD" });
+	}
+}
+
+// Delete myWOD by it's Id
+async function deleteWod(req, res) {
+	try {
+		const wodId = req.params.id;
+		await Wod.findByIdAndDelete(wodId);
+		res.status(200).json();
+	} catch(error) {
+		console.log(error);
+		res.status(500).json({ error: "Could not delete WOD" });
 	}
 }
