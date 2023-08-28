@@ -27,6 +27,9 @@ const port = process.env.PORT || 3001;
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/aiwods', require('./routes/api/aiwods'));
 
+// Protect all routes below from anonymous users
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/mywods', ensureLoggedIn, require('./routes/api/mywods'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

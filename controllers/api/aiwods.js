@@ -36,10 +36,10 @@ async function createWod(req, res) {
     res.status(200).json({ WodResult: aiResponseText, aiGeneratedWod: formattedWod });
     console.log(aiResponseText);
     console.log(formattedWod);
-  } catch(err) {
-    console.log(err);
+  } catch(error) {
+    console.log(error);
     console.error('Error in createWod:', error);
-    res.status(500).json({ message: 'Oh my WOD! Internal Server Error' });
+    res.status(500).json({ error: 'Oh my WOD! Internal Server Error' });
   }
 }
 
