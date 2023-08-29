@@ -4,29 +4,32 @@ flex-direction: column;
 align-items: center;
 padding: 20px;
 font-family: 'Arial', sans-serif;
-background-color: #f4f4f4;
-
+background-color: #042642;
+opacity: .92;
+background-image: linear-gradient(45deg, black, transparent);
+width: 35vmax;
+border-radius: 8vmin;
 }
 
 h1 {
-color: #333;
+color: #f4e1e1;
 margin-bottom: 30px;
 }
 
 .wod-ai {
-width: 60%;
-background-color: #fff;
-padding: 30px;
-border-radius: 10px;
+width: 80%;
+/* background-color: #fff; */
+padding: 2vmin;
+border-radius: 3vmin;
 box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-margin-bottom: 20px;
-color: black;
+margin-bottom: 2vmin;
+color: #ff9800;
 }
 
 h2 {
 text-transform: uppercase;
 letter-spacing: 2px;
-color: #555;
+color: #ef495c;
 margin-bottom: 10px;
 }
 
@@ -37,11 +40,11 @@ padding: 0;
 
 li {
 margin-bottom: 5px;
-color: #666;
+color: #04ece0;
 }
 
 .generate-btn {
-background-color: #03274e;
+background-color: #c80647;
 border: none;
 color: rgb(243, 245, 196);
 padding: 10px 20px;
@@ -51,10 +54,31 @@ border-radius: 20px;
 cursor: pointer;
 transition: background-color 0.25s ease;
 transition: color 0.25s ease;
+margin-bottom: 2vmin;
 }
 
 .generate-btn:hover {
-background-color: #036b5f;
-border:rgb(51, 255, 0) solid 1.5px;
-color: aliceblue;
+background-color: #000000;
+border:rgb(178, 244, 247) solid 1px;
+color: rgb(251, 151, 216);
+}
+
+.save-btn {
+background-color: #02ac1e;
+border: none;
+color: rgb(243, 245, 196);
+padding: 10px 20px;
+text-transform: uppercase;
+font-weight: bold;
+border-radius: 20px;
+cursor: pointer;
+transition: background-color 0.25s ease;
+transition: color 0.25s ease;
+margin-bottom: 2vmin;
+}
+
+.save-btn:hover {
+background-color: #f6ee02;
+border:rgb(242, 251, 240) solid 1px;
+color: rgb(1, 51, 95);
 }

@@ -26,9 +26,13 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: baseline;
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgb(2, 32, 82);
+  /* background-image: url("./assets/background-1.png"); */
+  background-position: center;
+  background-size: cover;
 }
 
 h1 {
