@@ -30,7 +30,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: rgb(2, 32, 82);
-  /* background-image: url("./assets/background-1.png"); */
+  background-image: url("./assets/background-1.png");
   background-position: center;
   background-size: cover;
 }
