@@ -59,9 +59,12 @@ export default function WodDetailPage({ user }) {
               <button className="edit-button" onClick={toggleEdit}>
                 {editing ? 'Cancel' : 'Edit'}
               </button>
+              {editing ? 
+              '' :               
               <button className="delete-button" onClick={handleDelete}>
                 Delete
               </button>
+              }
             </div>
           </div >
         ) : (
