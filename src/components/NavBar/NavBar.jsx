@@ -16,10 +16,10 @@ export default function NavBar({user, setUser}) {
       <Link to="/" >
         <h2>MyWOD</h2>
       </Link>
+      <Link to="/about">About</Link>
+      &nbsp;&nbsp;
       { user ? 
       <>
-        <Link to="/about">About</Link>
-        &nbsp;&nbsp;
         <Link to="/mywods">MyWODS</Link>
         &nbsp;
         <div className="right">

@@ -30,9 +30,9 @@ export default function App() {
         :
         <>
           <Routes>          
-            <Route path="/auth" element={<AuthPage setUser={setUser} />} />
             <Route path="/" element={<HomePage user={user} />} />
             <Route path="/about" element={<AboutPage user={user} />} />
+            <Route path="/auth" element={<AuthPage setUser={setUser} />} />
           </Routes>
         </>        
       }
