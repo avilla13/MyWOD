@@ -1,0 +1,19 @@
+.about-page {
+    background-color: #042642;
+    opacity: .92;
+    background-image: linear-gradient(45deg, black, transparent);
+    margin-top: 8vmin;
+    padding: 2vmin;
+}
+
+p, dl {
+    color: whitesmoke;
+}
+
+dt {
+    color: rgb(220, 11, 248);
+}
+
+dd {
+    color: yellow;
+}
