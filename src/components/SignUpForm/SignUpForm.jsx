@@ -43,7 +43,7 @@ export default function SignUpForm({ setUser }) {
           <input type="password" name="password" value={formData.password} onChange={handleChange} required />
           <label>Confirm</label>
           <input type="password" name="confirm" value={formData.confirm} onChange={handleChange} required />
-          <button type="submit" disabled={disable}>SIGN UP</button>
+          <button type="submit" disabled={disable} className="update-button">SIGN UP</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>

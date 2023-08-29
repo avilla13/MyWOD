@@ -44,10 +44,12 @@ input:focus {
   cursor: pointer;
   text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
   box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+	font-weight: bold;
 }
 
 .update-button:hover {
-  background-color: #00cc00;
+  background-color: #03fef2;
+	border:rgb(178, 244, 247) solid 1px;
 }
 
 /* For Responsiveness */
