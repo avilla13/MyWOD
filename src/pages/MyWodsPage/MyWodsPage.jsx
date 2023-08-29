@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import * as mywodsApi from '../../utilities/mywods-api';
 import MyWodCard from '../../components/MyWodCard/MyWodCard';
 import './MyWodsPage.css';
-// import Wod from '../../../models/wod';
 
 export default function MyWodsPage({ user }){
   const [myWods, setMyWods] = useState([]);

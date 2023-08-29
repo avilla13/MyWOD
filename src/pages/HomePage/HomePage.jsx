@@ -9,11 +9,6 @@ export default function HomePage({ user }) {
   useEffect(() => {
     generateAiWod();
   }, []);
-  // Used for testing purposes
-  function handleClick(){
-    console.log(user._id);
-    alert('testing user info')
-  }
 
   async function saveAiWod(){
     try {
@@ -27,8 +22,7 @@ export default function HomePage({ user }) {
 
   async function generateAiWod(){
     const response = await aiwodsApi.createAIWod();
-    console.log(response.WodResult);
-    console.log(response.aiGeneratedWod);
+    // console.log(response.WodResult);
     setAiWod(response.aiGeneratedWod);
   }
 

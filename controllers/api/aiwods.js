@@ -33,9 +33,7 @@ async function createWod(req, res) {
     const data = await response.json();
     const aiResponseText = data.choices[0].message.content;
     const formattedWod = parseWod(aiResponseText);
-    res.status(200).json({ WodResult: aiResponseText, aiGeneratedWod: formattedWod });
-    console.log(aiResponseText);
-    console.log(formattedWod);
+    res.status(200).json({ WodResult: aiResponseText, aiGeneratedWod: formattedWod });    
   } catch(error) {
     console.log(error);
     console.error('Error in createWod:', error);
@@ -115,7 +113,6 @@ async function saveWod(req, res) {
     const digits = new Date().valueOf().toString().slice(-5);
     newWod.name = `WOD${digits}`;
     await newWod.save();    
-    console.log(`newWod: ${newWod} and it belongs to ${user.name}`);
     // Respond back to Front-End
     res.status(200).json({ message: 'WOD saved to your WODS. Click on MyWODS to view', wod: newWod });
   } catch (error) {
