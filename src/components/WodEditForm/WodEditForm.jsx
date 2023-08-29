@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './WodEditForm.css';
 
 export default function WodEditForm({ wod, onUpdate }) {
   const [formData, setFormData] = useState({
@@ -88,7 +89,7 @@ export default function WodEditForm({ wod, onUpdate }) {
           </div>
         ))}
       </div>
-      <button type="submit">Update WOD</button>
+      <button type="submit" className='update-button'>Update WOD</button>
     </form>
   );
 }

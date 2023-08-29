@@ -1,0 +1,66 @@
+form {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1c1c1e;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  margin: auto;
+  max-width: 600px;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #00ff00;
+  font-size: 16px;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  outline-color: #00ff00;
+}
+
+input:focus {
+  border-color: #00ff00;
+  box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+}
+
+.update-button {
+  background-color: #00ff00;
+  color: #1c1c1e;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+}
+
+.update-button:hover {
+  background-color: #00cc00;
+}
+
+/* For Responsiveness */
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+}
