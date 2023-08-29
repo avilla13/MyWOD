@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import * as mywodsApi from '../../utilities/mywods-api';
 import WodEditForm from "../../components/WodEditForm/WodEditForm";
+import './WodDetailPage.css';
 
 export default function WodDetailPage({ user }) {
   const [wod, setWod] = useState(null);
@@ -34,27 +35,39 @@ export default function WodDetailPage({ user }) {
   }
 
   return (
-    <div>
-      <h1>WodDetailPage</h1>
-      { wod ? (
-      <>
-      <h3>{wod.name ? wod.name :`(WOD not named)` }</h3>
-      <h2>{wod.type} </h2>
-      <div>{ wod.rounds ? `${wod.rounds} Rounds of:` : `in ${wod.duration} minutes:` }</div>
-      <ul>
-        {wod.movements && wod.movements.map((movement, idx) => (
-          <li key={idx} >
-            {movement.reps} {movement.movement} {movement.weight ? `(${movement.weight})` : `` }
-          </li>
-        ))}
-      </ul>
-      {editing && <WodEditForm wod={wod} onUpdate={handleUpdate} />}
-      <button onClick={toggleEdit}>{editing ? 'Cancel' : 'Edit'}</button>
-      <button onClick={handleDelete} >Delete</button>
-      </>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <>
+      <h1 className="wod-header">WodDetailPage</h1>
+      <div className="wod-detail-container">
+        {wod ? (
+          <div className="wod-detail">
+            <h3 className="wod-name">{wod.name ? wod.name : '(WOD not named)'}</h3>
+            <h2 className="wod-type">{wod.type}</h2>
+            <div className="wod-rounds-duration">
+              {wod.rounds ? `${wod.rounds} Rounds of:` : `in ${wod.duration} minutes:`}
+            </div>
+            <ul className="movements-list">
+              {wod.movements &&
+                wod.movements.map((movement, idx) => (
+                  <li key={idx} className="movement-item">
+                    {movement.reps} {movement.movement}{' '}
+                    {movement.weight ? `(${movement.weight})` : ''}
+                  </li>
+                ))}
+            </ul>
+            {editing && <WodEditForm wod={wod} onUpdate={handleUpdate} />}
+            <div className="button-group">
+              <button className="edit-button" onClick={toggleEdit}>
+                {editing ? 'Cancel' : 'Edit'}
+              </button>
+              <button className="delete-button" onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          </div >
+        ) : (
+          <p className="loading-message">Loading...</p>
+        )}
     </div>
+  </>
   )
 }

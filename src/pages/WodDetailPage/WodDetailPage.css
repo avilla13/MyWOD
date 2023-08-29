@@ -1,0 +1,88 @@
+.wod-detail-container {
+margin: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px;
+font-family: 'Arial', sans-serif;
+background-color: #042642;
+opacity: .92;
+background-image: linear-gradient(45deg, black, transparent);
+width: 35vmax;
+border-radius: 8vmin;
+}
+
+.wod-header {
+color: #f4e1e1;
+margin-bottom: 30px;
+}
+
+.wod-detail {
+width: 80%;
+padding: 2vmin;
+border-radius: 3vmin;
+box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+margin-bottom: 2vmin;
+color: #ff9800;
+}
+
+.wod-name {
+font-size: 20px;
+}
+
+.wod-type {
+font-size: 18px;
+}
+
+.wod-rounds-duration {
+margin-top: 10px;
+font-size: 16px;
+}
+
+.movements-list {
+list-style: none;
+padding-left: 0;
+}
+
+.movement-item {
+margin-bottom: 5px;
+}
+
+.button-group {
+margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+background-color: #02ac1e;
+border: none;
+color: rgb(243, 245, 196);
+padding: 10px 20px;
+text-transform: uppercase;
+font-weight: bold;
+border-radius: 20px;
+cursor: pointer;
+transition: background-color 0.25s ease;
+transition: color 0.25s ease;
+margin: 2vmin;
+}
+.delete-button {
+background-color: red;
+}
+
+.edit-button:hover {
+background-color: #f6ee02;
+border:rgb(242, 251, 240) solid 1px;
+color: rgb(1, 51, 95);
+}
+
+.delete-button:hover {
+background-color: #000000;
+border:rgb(178, 244, 247) solid 1px;
+color: rgb(251, 151, 216);
+}
+
+.loading-message {
+font-size: 16px;
+}
+
