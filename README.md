@@ -48,7 +48,7 @@ To join our planning process, visit our [Trello board](https://trello.com/b/NrQE
 
 ## Code Preview
 This is an example of using OpenAI API gpt-3.5-turbo to respond to request with a completion that is based on the prompt context.
-```
+```js 
 async function createWod(req, res) {
   try {
     const response = await fetch(endpoint, {
